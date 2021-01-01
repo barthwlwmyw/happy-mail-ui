@@ -10,10 +10,7 @@ const Auth = () => {
   const [password, setPassword] = useState('')
 
   const handleLogIn = () => {
-    console.log('bef')
     dispatch(userLogIn({ username, password }))
-
-    console.log('aft')
   }
 
   return (

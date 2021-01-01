@@ -1,5 +1,4 @@
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
   Link
@@ -8,31 +7,36 @@ import './App.css'
 
 import Home from './components/Home'
 import Auth from './components/Auth'
+import Profile from './components/Profile'
 
 const App = () => {
   return (
     <div className='App'>
-      <Router>
-        <h3>
+      <h3>
         Happy mail ui
-        </h3>
-        <hr />
-        <Link to='/'>
-          <p>Home</p>
-        </Link>
-        <Link to='/auth'>
-          <p>Log In</p>
-        </Link>
-        <hr />
-        <Switch>
-          <Route path='/auth'>
-            <Auth />
-          </Route>
-          <Route path='/'>
-            <Home />
-          </Route>
-        </Switch>
-      </Router>
+      </h3>
+      <hr />
+      <Link to='/'>
+        <p>Home</p>
+      </Link>
+      <Link to='/auth'>
+        <p>Log In</p>
+      </Link>
+      <Link to='/profile'>
+        <p>Profile</p>
+      </Link>
+      <hr />
+      <Switch>
+        <Route path='/profile'>
+          <Profile />
+        </Route>
+        <Route path='/auth'>
+          <Auth />
+        </Route>
+        <Route path='/'>
+          <Home />
+        </Route>
+      </Switch>
     </div>
   )
 }

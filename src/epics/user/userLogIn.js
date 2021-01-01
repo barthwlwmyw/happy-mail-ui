@@ -1,7 +1,7 @@
 
 import { ActionsObservable, ofType } from 'redux-observable'
 import { withLatestFrom, mergeMap, catchError } from 'rxjs/operators'
-import { USER_LOG_IN } from '../../actions'
+import { USER_LOG_IN, userLogInSuccess, userLogInFailure } from '../../actions'
 import config from '../../config.json'
 import { push } from 'connected-react-router'
 
@@ -12,20 +12,14 @@ const userLogIn = (action$, state$, { ajax }) =>
     mergeMap(([action, state]) => {
       return ajax(createRequest(action.username, action.password)).pipe(
         mergeMap((res) => [handleSuccess(res), redirect()]),
-        catchError(err => ActionsObservable.of(failureAction(err)))
+        catchError(err => ActionsObservable.of(userLogInFailure(err)))
       )
     })
   )
 
-const redirect = () => {
-  return push('/')
-}
+const handleSuccess = (response) => userLogInSuccess(response)
 
-const handleSuccess = (response) => {
-  return { type: 'i znowu sukces i znowu nie my', body: response }
-}
-
-const failureAction = (err) => ({ type: 'porazka porazka porazka', body: err })
+const redirect = () => push('/profile')
 
 const createRequest = (username, password) => ({
   method: 'POST',
