@@ -13,5 +13,5 @@ export const userLogInSuccess = (res) => ({
 export const USER_LOG_IN_FAILURE = 'USER_LOG_IN_FAILURE'
 export const userLogInFailure = (res) => ({
   type: USER_LOG_IN_FAILURE,
-  ...res.response
+  response: res.response
 })
