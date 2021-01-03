@@ -4,7 +4,6 @@ import {
     Route,
     Link
 } from 'react-router-dom'
-import '../../App.css'
 
 import {useDispatch, useSelector} from 'react-redux'
 
@@ -77,7 +76,7 @@ const MainView = () => {
                     <Typography variant="h4" className={classes.title}>
                         <Link className={classes.link} to='/'>
                             <Icon fontSize="large" classes={{root: classes.iconRoot}}>
-                                <img className={classes.imageIcon} src='/assets/images/emoji-happy-smiley.svg'/>
+                                <img className={classes.imageIcon} src='/assets/images/emoji-happy-smiley.svg' alt={"Happy emoji"}/>
                             </Icon>
                             HappyMail
                         </Link>
@@ -88,15 +87,15 @@ const MainView = () => {
                     {userData.isLoggedIn
                         ? (
                             <div className={classes.logBar}>
-                                <Typography variant="body1" onClick={handleLogOut}>
+                                <Typography variant="body1">
                                     <span className={classes.userName}>
                                         User: {userData.username}
                                     </span>
                                 </Typography>
                                 <Typography variant="h6" onClick={handleLogOut}>
-                                    <span className={classes.link}>
+                                    <Link button className={classes.link}>
                                         Log Out
-                                    </span>
+                                    </Link>
                                 </Typography>
                             </div>
                         )

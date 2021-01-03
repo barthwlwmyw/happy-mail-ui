@@ -68,7 +68,7 @@ const LoginView = () => {
             <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
                 <div className={classes.paper}>
                     <Icon fontSize="large" classes={{root: classes.iconRoot}}>
-                        <img className={classes.imageIcon} src='/assets/images/emoji-cute.svg'/>
+                        <img className={classes.imageIcon} src='/assets/images/emoji-cute.svg' alt={"Cute emoji"}/>
                     </Icon>
                     <Typography component="h1" variant="h5">
                         Sign in
