@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-const Profile = () => {
+const ProfileView = () => {
   const userData = useSelector(state => state.user)
 
   return (
@@ -23,4 +23,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default ProfileView

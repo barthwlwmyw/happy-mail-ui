@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
     },
-    form: {
+    formWrapper: {
         width: '100%', // Fix IE 11 issue.
         marginTop: theme.spacing(1),
     },
@@ -73,7 +73,7 @@ const LoginView = () => {
                     <Typography component="h1" variant="h5">
                         Sign in
                     </Typography>
-                    <form className={classes.form} noValidate>
+                    <div className={classes.formWrapper}>
                         <TextField
                             variant="outlined"
                             margin="normal"
@@ -136,7 +136,7 @@ const LoginView = () => {
                                 </Link>
                             </Grid>
                         </Grid>
-                    </form>
+                    </div>
                 </div>
             </Grid>
 

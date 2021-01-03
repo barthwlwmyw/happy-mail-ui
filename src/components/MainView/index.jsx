@@ -6,17 +6,18 @@ import {
 } from 'react-router-dom'
 import '../../App.css'
 
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 
 import HomeView from '../HomeView'
 import LoginView from '../LoginView'
-import Profile from '../Profile'
+import ProfileView from '../ProfileView'
 
 import {makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Icon from '@material-ui/core/Icon';
+import {userLogOut} from "../../actions";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -36,9 +37,16 @@ const useStyles = makeStyles((theme) => ({
     title: {
         flexGrow: 1,
     },
-    logButton: {
+    logBar: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
         marginRight: 0,
         marginLeft: 'auto',
+        color: 'white',
+    },
+    userName: {
+        marginRight: '1em',
     },
     link: {
         textDecoration: 'none',
@@ -55,7 +63,12 @@ const useStyles = makeStyles((theme) => ({
 
 const MainView = () => {
     const classes = useStyles();
+    const dispatch = useDispatch();
     const userData = useSelector(state => state.user)
+
+    const handleLogOut = () => {
+        dispatch(userLogOut());
+    }
 
     const navBar = () => {
         return (
@@ -74,14 +87,21 @@ const MainView = () => {
 
                     {userData.isLoggedIn
                         ? (
-                            <Typography variant="h6" className={classes.logButton}>
-                                <Link className={classes.link} to='/logout'>
-                                    Log Out
-                                </Link>
-                            </Typography>
+                            <div className={classes.logBar}>
+                                <Typography variant="body1" onClick={handleLogOut}>
+                                    <span className={classes.userName}>
+                                        User: {userData.username}
+                                    </span>
+                                </Typography>
+                                <Typography variant="h6" onClick={handleLogOut}>
+                                    <span className={classes.link}>
+                                        Log Out
+                                    </span>
+                                </Typography>
+                            </div>
                         )
                         : (
-                            <Typography variant="h6" className={classes.logButton}>
+                            <Typography variant="h6" className={classes.logBar}>
                                 <Link className={classes.link} to='/login'>
                                     Log In
                                 </Link>
@@ -95,14 +115,17 @@ const MainView = () => {
     const pageBody = () => {
         return (
             <Switch>
-                <Route path='/profile'>
-                    <Profile/>
-                </Route>
                 <Route path='/login'>
                     <LoginView/>
                 </Route>
                 <Route path='/'>
-                    <HomeView/>
+                    {userData.isLoggedIn
+                        ? (
+                            <ProfileView/>
+                        )
+                        : (
+                            <HomeView/>
+                        )}
                 </Route>
             </Switch>
         )

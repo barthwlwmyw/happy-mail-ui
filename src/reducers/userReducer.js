@@ -1,4 +1,4 @@
-import { USER_LOG_IN_SUCCESS, USER_LOG_IN_FAILURE } from './../actions'
+import { USER_LOG_IN_SUCCESS, USER_LOG_IN_FAILURE, USER_LOG_OUT } from './../actions'
 
 const defaultUserState = {
   isLoggedIn: false,
@@ -16,6 +16,9 @@ const userReducer = (state = defaultUserState, action) => {
       }
 
     case USER_LOG_IN_FAILURE:
+      return defaultUserState
+
+    case USER_LOG_OUT:
       return defaultUserState
 
     default:

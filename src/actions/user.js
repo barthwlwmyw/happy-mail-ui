@@ -15,3 +15,8 @@ export const userLogInFailure = (res) => ({
   type: USER_LOG_IN_FAILURE,
   response: res.response
 })
+
+export const USER_LOG_OUT = 'USER_LOG_OUT'
+export const userLogOut = () => ({
+  type: USER_LOG_OUT
+})
