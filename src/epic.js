@@ -1,8 +1,6 @@
 import { combineEpics } from 'redux-observable'
 
-// import loadDatafileEpic from './epics/datafile/loadDatafile'
-// import createApproxTaskEpic from './epics/approxTask/createTask'
-// import checkTaskStatusEpic from './epics/approxTask/checkTaskStatus'
 import userLogIn from './epics/user/userLogIn'
+import getMessages from './epics/messages/getMessages'
 
-export default combineEpics(userLogIn)
+export default combineEpics(userLogIn, getMessages)

@@ -7,11 +7,12 @@ import { createBrowserHistory } from 'history'
 import { connectRouter, routerMiddleware } from 'connected-react-router'
 
 import user from './reducers/userReducer'
+import messages from './reducers/messagesReducer'
 
 export const history = createBrowserHistory()
 
 export const createRootReducer = (history) =>
-  combineReducers({ router: connectRouter(history), user })
+  combineReducers({ router: connectRouter(history), user, messages })
 
 const getStore = () => {
   const epicMiddleware = createEpicMiddleware({ dependencies: { ajax } })

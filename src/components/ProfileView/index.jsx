@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
     Switch,
     Route,
     Link
 } from 'react-router-dom';
+
+import {useDispatch, useSelector} from "react-redux";
+import {getMessages} from "../../actions";
 
 import {makeStyles} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -84,7 +87,13 @@ const useStyles = makeStyles((theme) => ({
 
 const ProfileView = () => {
     const classes = useStyles();
-    const messagesData = messages;
+    const dispatch = useDispatch();
+    const messagesData = useSelector(state => state.messages)
+    const userData = useSelector(state => state.user)
+
+    useEffect(() => {
+        dispatch(getMessages(userData.jwtToken));
+    }, [])
 
     const firstPanel = () => {
         return (
@@ -175,9 +184,10 @@ const ProfileView = () => {
     }
 
     const inbox = () => {
-        if (!!Array.isArray(messagesData)
-            && !!messagesData.length) {
-            return messagesData.map(item => (
+        if (!!messagesData
+            &&!!Array.isArray(messagesData.messages)
+            && !!messagesData.messages.length) {
+            return messagesData.messages.map(item => (
                 <List>
                     <ListItem button className={classes.messageWrapper}>
                         <Typography noWrap className={classes.messageUser} variant="h6">
@@ -228,47 +238,3 @@ const ProfileView = () => {
 }
 
 export default ProfileView
-
-
-const messages = [
-    {
-        id: "5ff05843380f911056f146cd",
-        senderUsername: "iwona",
-        recipientUsername: "iwona",
-        createdAt: "2021-01-02T11:25:55.775Z",
-        content: "Blah blah blah",
-        isToxic: true
-    },
-    {
-        id: "5ff0585c380f911056f146ce",
-        senderUsername: "iwona",
-        recipientUsername: "iwona",
-        createdAt: "2021-01-02T11:26:20.441Z",
-        content: "Blah blah blah 123Blah blah blah 123Blah blah blah 123Blah blah blah 123Blah blah blah 123Blah blah blah 123Blah blah blah 123Blah blah blah 123Blah blah blah 123Blah blah blah 123Blah blah blah 123Blah blah blah 123",
-        isToxic: false
-    },
-    {
-        id: "5ff0585c380f911056f146c1",
-        senderUsername: "bartek",
-        recipientUsername: "iwona",
-        createdAt: "2021-01-02T15:26:20.441Z",
-        content: "Blah blah blah 123",
-        isToxic: false
-    },
-    {
-        id: "5ff0585c380f911056f146c2",
-        senderUsername: "piotr",
-        recipientUsername: "iwona",
-        createdAt: "2021-01-03T11:26:20.441Z",
-        content: "Blah blah blah 12blah blah 12blah blah 12blah blah 12blah blah 12blah blah 12blah blah 12blah blah 12blah blah 12blah blah 12blah blah 12blah blah 123",
-        isToxic: true
-    },
-    {
-        id: "5ff0585c380f911056f146c3",
-        senderUsername: "bartek",
-        recipientUsername: "iwona",
-        createdAt: "2021-01-03T12:20:20.441Z",
-        content: "Blah blah blah 123",
-        isToxic: false
-    }
-]
