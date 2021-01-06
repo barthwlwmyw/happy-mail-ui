@@ -19,7 +19,7 @@ const userLogIn = (action$, state$, { ajax }) =>
 
 const handleSuccess = (response) => userLogInSuccess(response)
 
-const redirect = () => push('/profile')
+const redirect = () => push('/')
 
 const createRequest = (username, password) => ({
   method: 'POST',
