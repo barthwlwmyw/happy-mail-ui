@@ -93,7 +93,7 @@ const MainView = () => {
                                     </span>
                                 </Typography>
                                 <Typography variant="h6" onClick={handleLogOut}>
-                                    <Link button className={classes.link}>
+                                    <Link className={classes.link} to='/'>
                                         Log Out
                                     </Link>
                                 </Typography>

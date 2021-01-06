@@ -7,7 +7,6 @@ const defaultMessagesState = {
 const messagesReducer = (state = defaultMessagesState, action) => {
   switch (action.type) {
     case GET_MESSAGES_SUCCESS:
-      console.log(action.response)
       return {
         messages: action.response,
       }
