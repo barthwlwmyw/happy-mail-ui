@@ -1,10 +1,10 @@
-import { USER_LOG_IN_SUCCESS, USER_LOG_IN_FAILURE, USER_LOG_OUT } from './../actions'
+import { USER_LOG_IN_SUCCESS, USER_LOG_IN_FAILURE, USER_LOG_OUT } from '../actions';
 
 const defaultUserState = {
   isLoggedIn: false,
   username: null,
-  jwtToken: null
-}
+  jwtToken: null,
+};
 
 const userReducer = (state = defaultUserState, action) => {
   switch (action.type) {
@@ -12,18 +12,18 @@ const userReducer = (state = defaultUserState, action) => {
       return {
         isLoggedIn: true,
         username: action.username,
-        jwtToken: action.accessToken
-      }
+        jwtToken: action.accessToken,
+      };
 
     case USER_LOG_IN_FAILURE:
-      return defaultUserState
+      return defaultUserState;
 
     case USER_LOG_OUT:
-      return defaultUserState
+      return defaultUserState;
 
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default userReducer
+export default userReducer;

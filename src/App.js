@@ -1,12 +1,10 @@
-import './App.css'
+import './App.css';
 
-import React from "react";
-import MainView from './components/MainView'
+import React from 'react';
+import MainView from './components/MainView';
 
-const App = () => {
-  return (
-      <MainView />
-  )
-}
+const App = () => (
+  <MainView />
+);
 
-export default App
+export default App;
