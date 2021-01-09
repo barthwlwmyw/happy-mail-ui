@@ -26,5 +26,6 @@ module.exports = {
       specialLink: ['to'],
     }],
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'max-len': ['error', { code: 160 }],
   },
 };
