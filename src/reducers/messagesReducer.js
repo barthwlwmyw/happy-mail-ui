@@ -1,25 +1,25 @@
-import {GET_MESSAGES_SUCCESS, GET_MESSAGES_FAILURE, USER_LOG_OUT} from './../actions'
+import { GET_MESSAGES_SUCCESS, GET_MESSAGES_FAILURE, USER_LOG_OUT } from '../actions';
 
 const defaultMessagesState = {
-  messages: []
-}
+  messages: [],
+};
 
 const messagesReducer = (state = defaultMessagesState, action) => {
   switch (action.type) {
     case GET_MESSAGES_SUCCESS:
       return {
         messages: action.response,
-      }
+      };
 
     case GET_MESSAGES_FAILURE:
-      return defaultMessagesState
+      return defaultMessagesState;
 
     case USER_LOG_OUT:
-      return defaultMessagesState
+      return defaultMessagesState;
 
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default messagesReducer
+export default messagesReducer;
