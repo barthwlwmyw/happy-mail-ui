@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-    Link
+  Link,
 } from 'react-router-dom';
 
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
@@ -19,88 +19,88 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import CreateIcon from '@material-ui/icons/Create';
 
 const useStyles = makeStyles((theme) => ({
-    link: {
-        textDecoration: 'none',
-        color: 'black',
-    },
-    newMessageLink: {
-        backgroundColor: 'gold'
-    },
-    dividerMargin: {
-        marginTop: theme.spacing(3),
-    },
+  link: {
+    textDecoration: 'none',
+    color: 'black',
+  },
+  newMessageLink: {
+    backgroundColor: 'gold',
+  },
+  dividerMargin: {
+    marginTop: theme.spacing(3),
+  },
 }));
 
 const SideNavPanel = () => {
-    const classes = useStyles();
+  const classes = useStyles();
 
-    return (
-        <List>
-            <div>
-                <Link className={classes.link} to='/write'>
-                    <ListItem button className={classes.newMessageLink}>
-                        <ListItemIcon>
-                            <CreateIcon/>
-                        </ListItemIcon>
-                        <ListItemText primary="New message"/>
-                    </ListItem>
-                </Link>
+  return (
+    <List>
+      <div>
+        <Link className={classes.link} to="/write">
+          <ListItem button className={classes.newMessageLink}>
+            <ListItemIcon>
+              <CreateIcon />
+            </ListItemIcon>
+            <ListItemText primary="New message" />
+          </ListItem>
+        </Link>
 
-                <Link className={classes.link} to='/inbox'>
-                    <ListItem button>
-                        <ListItemIcon>
-                            <MailOutlineIcon/>
-                        </ListItemIcon>
-                        <ListItemText primary="Inbox"/>
-                    </ListItem>
-                </Link>
+        <Link className={classes.link} to="/inbox">
+          <ListItem button>
+            <ListItemIcon>
+              <MailOutlineIcon />
+            </ListItemIcon>
+            <ListItemText primary="Inbox" />
+          </ListItem>
+        </Link>
 
-                <ListItem button>
-                    <ListItemIcon>
-                        <DeleteOutlineIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary="Trash"/>
-                </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <DeleteOutlineIcon />
+          </ListItemIcon>
+          <ListItemText primary="Trash" />
+        </ListItem>
 
-                <ListItem button>
-                    <ListItemIcon>
-                        <TelegramIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary="Sent"/>
-                </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <TelegramIcon />
+          </ListItemIcon>
+          <ListItemText primary="Sent" />
+        </ListItem>
 
-                <ListItem button>
-                    <ListItemIcon>
-                        <NotInterestedIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary="Spam"/>
-                </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <NotInterestedIcon />
+          </ListItemIcon>
+          <ListItemText primary="Spam" />
+        </ListItem>
 
-                <ListItem button>
-                    <ListItemIcon>
-                        <DraftsIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary="Drafts"/>
-                </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <DraftsIcon />
+          </ListItemIcon>
+          <ListItemText primary="Drafts" />
+        </ListItem>
 
-                <Divider className={classes.dividerMargin} variant={'fullWidth'} orientation={'horizontal'}/>
+        <Divider className={classes.dividerMargin} variant="fullWidth" orientation="horizontal" />
 
-                <ListItem button>
-                    <ListItemIcon>
-                        <ContactMailIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary="Contacts"/>
-                </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <ContactMailIcon />
+          </ListItemIcon>
+          <ListItemText primary="Contacts" />
+        </ListItem>
 
-                <ListItem button>
-                    <ListItemIcon>
-                        <SettingsIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary="Settings"/>
-                </ListItem>
-            </div>
-        </List>
-    )
-}
+        <ListItem button>
+          <ListItemIcon>
+            <SettingsIcon />
+          </ListItemIcon>
+          <ListItemText primary="Settings" />
+        </ListItem>
+      </div>
+    </List>
+  );
+};
 
-export default SideNavPanel
+export default SideNavPanel;

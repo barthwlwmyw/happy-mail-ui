@@ -1,22 +1,22 @@
-export const USER_LOG_IN = 'USER_LOG_IN'
+export const USER_LOG_IN = 'USER_LOG_IN';
 export const userLogIn = (authData) => ({
   type: USER_LOG_IN,
-  ...authData
-})
+  ...authData,
+});
 
-export const USER_LOG_IN_SUCCESS = 'USER_LOG_IN_SUCCESS'
+export const USER_LOG_IN_SUCCESS = 'USER_LOG_IN_SUCCESS';
 export const userLogInSuccess = (res) => ({
   type: USER_LOG_IN_SUCCESS,
-  ...res.response
-})
+  ...res.response,
+});
 
-export const USER_LOG_IN_FAILURE = 'USER_LOG_IN_FAILURE'
+export const USER_LOG_IN_FAILURE = 'USER_LOG_IN_FAILURE';
 export const userLogInFailure = (res) => ({
   type: USER_LOG_IN_FAILURE,
-  response: res.response
-})
+  response: res.response,
+});
 
-export const USER_LOG_OUT = 'USER_LOG_OUT'
+export const USER_LOG_OUT = 'USER_LOG_OUT';
 export const userLogOut = () => ({
-  type: USER_LOG_OUT
-})
+  type: USER_LOG_OUT,
+});

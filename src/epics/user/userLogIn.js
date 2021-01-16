@@ -1,25 +1,12 @@
+import { ActionsObservable, ofType } from 'redux-observable';
+import { withLatestFrom, mergeMap, catchError } from 'rxjs/operators';
+import { push } from 'connected-react-router';
+import { USER_LOG_IN, userLogInSuccess, userLogInFailure } from '../../actions';
+import config from '../../config.json';
 
-import { ActionsObservable, ofType } from 'redux-observable'
-import { withLatestFrom, mergeMap, catchError } from 'rxjs/operators'
-import { USER_LOG_IN, userLogInSuccess, userLogInFailure } from '../../actions'
-import config from '../../config.json'
-import { push } from 'connected-react-router'
+const handleSuccess = (response) => userLogInSuccess(response);
 
-const userLogIn = (action$, state$, { ajax }) =>
-  action$.pipe(
-    ofType(USER_LOG_IN),
-    withLatestFrom(state$),
-    mergeMap(([action, state]) => {
-      return ajax(createRequest(action.username, action.password)).pipe(
-        mergeMap((res) => [handleSuccess(res), redirect()]),
-        catchError(err => ActionsObservable.of(userLogInFailure(err)))
-      )
-    })
-  )
-
-const handleSuccess = (response) => userLogInSuccess(response)
-
-const redirect = () => push('/')
+const redirect = () => push('/');
 
 const createRequest = (username, password) => ({
   method: 'POST',
@@ -27,8 +14,17 @@ const createRequest = (username, password) => ({
   headers: { 'Content-Type': 'application/json' },
   body: {
     username,
-    password
-  }
-})
+    password,
+  },
+});
 
-export default userLogIn
+const userLogIn = (action$, state$, { ajax }) => action$.pipe(
+  ofType(USER_LOG_IN),
+  withLatestFrom(state$),
+  mergeMap(([action]) => ajax(createRequest(action.username, action.password)).pipe(
+    mergeMap((res) => [handleSuccess(res), redirect()]),
+    catchError((err) => ActionsObservable.of(userLogInFailure(err))),
+  )),
+);
+
+export default userLogIn;
