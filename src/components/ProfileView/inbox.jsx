@@ -77,7 +77,7 @@ const Inbox = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {messagesData.messages.map((item) => (<InboxMessage key={item.id} item={item} />))}
+          {messagesData.messages.slice(0).reverse().map((item) => (<InboxMessage key={item.id} item={item} />))}
         </TableBody>
       </Table>
 
