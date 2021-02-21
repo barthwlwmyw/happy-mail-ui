@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/happy-mail-ui/static/css/main.2c711a1b.chunk.css",
+    "main.js": "/happy-mail-ui/static/js/main.070bb5b1.chunk.js",
+    "main.js.map": "/happy-mail-ui/static/js/main.070bb5b1.chunk.js.map",
+    "runtime-main.js": "/happy-mail-ui/static/js/runtime-main.ae230bb5.js",
+    "runtime-main.js.map": "/happy-mail-ui/static/js/runtime-main.ae230bb5.js.map",
+    "static/js/2.55c8b9be.chunk.js": "/happy-mail-ui/static/js/2.55c8b9be.chunk.js",
+    "static/js/2.55c8b9be.chunk.js.map": "/happy-mail-ui/static/js/2.55c8b9be.chunk.js.map",
+    "index.html": "/happy-mail-ui/index.html",
+    "static/css/main.2c711a1b.chunk.css.map": "/happy-mail-ui/static/css/main.2c711a1b.chunk.css.map",
+    "static/js/2.55c8b9be.chunk.js.LICENSE.txt": "/happy-mail-ui/static/js/2.55c8b9be.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ae230bb5.js",
+    "static/js/2.55c8b9be.chunk.js",
+    "static/css/main.2c711a1b.chunk.css",
+    "static/js/main.070bb5b1.chunk.js"
+  ]
+}
